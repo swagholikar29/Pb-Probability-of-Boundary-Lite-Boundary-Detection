@@ -1,14 +1,16 @@
 # Pb-lite edge detection algorithm.
 
-## Overview
-In this assignment, a simplified version of Pb probability of boundary was to be implemented. This algorithm finds boundaries by examining brightness, color, and texture information in multiple scales.The implementation of this algorithm was intended to outperform the standard Sobel and Canny filter edge detection algorithms. The algorithm has five main basic steps:
-- Filters- Three different filters: Oriented Derivative of gaussian Filter, Leung-Malik Filter and Gabor filter are implemented.
-- Create Half-Disc masks
-- Generate Texton Map and Texton Gradient.
-- Generate Brightness Map and Brightness gradient.
-- Generate Color Map and Color Gradient.
-- Combine information from the features with a Sobel and
-Canny methods (Average).
+## About
+Boundary detection is an important, well-studied computer vision problem. A simple method to find boundaries is to look for 
+intensity discontinuities in the image, also known of edges. Classical edge detection algorithms, including the Canny and Sobel 
+baselines, look for these intensity discontinuities. The more recent pb (probability of boundary) boundary detection algorithm 
+significantly outperforms these classical methods by considering texture and color discontinuities in addition to intensity 
+discontinuities. Qualitatively, much of this performance jump comes from the ability of the pb algorithm to suppress false positives 
+that the classical methods produce in textured regions. This project is a simplified version of pb, which finds boundaries by examining 
+brightness, color, and texture information across multiple scales (different sizes of objects/image). The output of the algorithm is a 
+per-pixel probability of boundary which outperforms the Canny and Sobel Edge Detectors.\
+This project implements a simpler version of the algorithm presented in this 
+[paper](https://www2.eecs.berkeley.edu/Research/Projects/CS/vision/grouping/papers/amfm_pami2010.pdf)
 
 ## Filters
 ### 1. Oriented Derivative of Gradient filter
@@ -19,6 +21,13 @@ The implemented Leung-malik filterbank has 48 filters in total. Two versions of 
 
 ### 3. Gabor filter
 A 2-D Gabor filter is a Gaussian kernel function modulated by a sinusoidal plane wave. A Gabor filter can be used to automatically extract features using a filter bank.
+
+
+## Libraries Required:
+1. Numpy
+2. OpenCV
+3. Matplotlib
+4. Scikit-Learn
 
 ## Running
 ```sh
